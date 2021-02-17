@@ -1,1 +1,7 @@
-nothing
+Debug/
+JC_C_Vector.vcxproj
+JC_C_Vector.vcxproj.filters
+JC_C_Vector.vcxproj.user
+Release/
+archive.txt
+JC_C_Vector_Testing.h

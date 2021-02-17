@@ -1,0 +1,26 @@
+at function when returning a non pointer type will return 0 upon attempting to reach out of bounds as no exception can be thrown
+
+Macro Insanity
+----------------
+Overloaded Macro - A macro for a function to perform the equivelent of a function overload. This requires 2 macros. One to generate the generics for calling the function, and one for generating the different functions which are actually called
+
+	Example: #define JC_vector_pushback(vector, type) _Generic((type), JC_C_VECTOR_GENERIC_ALL_TYPES(JC_vector_pushback, (vector, type))) - this is the generic side for calling conventions. Will be referred to as function call macro
+	paired with #define JC_VECTOR_PUSHBACK_FUNCTION(data_type, data_type_string) bool JC_vector_pushback_##data_type_string(Vector * const vector, data_type data) {***insert function code here***} - this generates the function code. Will be referred to as function body macro
+
+	The two of these when paired together allow for overloaded functions in C
+
+Generic macros
+--------------
+
+Function Body Macros
+---------------------
+JC_VECTOR_FOO_FUNCTION(data_type, data_type_string) is a function body macro. data_type is the actual type of data, data_type_string is appended to the end of the function name. E.G. JC_vector_foo(unsigned int, unsigned_int)... becomes unsigned int JC_vector_foo_unsigned_int(...)... Only the data_type macro argument is actually used within the function body
+
+JC_C_VECTOR_ALL_TYPES_MACRO(macro) is a wrapper for a function body macro. It 
+
+
+Function Call Macros
+--------------------
+JC_vector_foo(vector, type) - Uses _Generic to generate the call for overloaded JC_vector_foo. Transforming JC_vector_foo(8) for example into JC_vector_foo_int(8)
+
+JC_C_VECTOR_GENERIC_ALL_TYPES(function, args) - Used to create all of the different options within the "switch-case" of the _Generic macro from C11. 

@@ -1,5 +1,4 @@
 # JC_C_Vector by Joshua Comer
------------
 
 A C implementation of the C++ std::vector which tries to remain as standards conforming with C++ as possible
 

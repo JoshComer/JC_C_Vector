@@ -5,7 +5,7 @@ A C implementation of the C++ std::vector which tries to remain as standards con
 The names of everything have been prefaced in such a way that there shouldn't be any naming collisions with anything else
 As everything is at least preceeded by JC_
 
-Why on earth am I seeking to do this you might ask? Why not just use C++? Well because I can. It's also a fun exercise as someone who has primarily used C++ before, to learn under the hood what some of the differences are between the 2 languages
+Why does this exist? I felt like it. Was a fun thing to write
 
 
 Future Plans
